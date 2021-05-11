@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.com">
+	<head>
+	<meta charset="utf-8">
+	<title>Insert title here</title>
+	</head>
+	<body>
+	
+	<h4>Registro de Cliente</h4>
+	<form th:object="${cliente}" th:action="@{/cliente/guardar}" method="POST">
+		<p>
+			<label>Tipo Doc.</label>
+			<select th:field=*{tipoDocumento}>
+				<option value="DNI">DNI</option>
+				<option value="Pasaporte">Pasaporte</option>
+				
+			</select>
+		</p>
+		<p>
+			<label  >Nro. Doc.</label>
+			<input type="number" th:field=*{nroDocumento} />
+		</p>
+		<p>
+			<label >Apellido/Nombre</label>
+			<input type="text" th:field=*{nombreApellido}  />
+		</p>
+		<p>
+			<label >E-Mail</label>
+			<input type="email" th:field=*{email}  />
+		</p>
+		<p>
+			<label >Password</label>
+			<input type="password" th:field=*{password} />
+		</p>
+		<p>
+			<label >Fecha Nac.</label>
+			<input type="date" th:field=*{fechaNacimiento} />
+		</p>
+		<p>
+			<label >Cód. Área telf.</label>
+			<input type="number" th:field=*{codigoAreaTelefono} />
+		</p>
+		<p>
+			<label >Nro. Telf.</label>
+			<input type="number" th:field=*{nroTelefono} />
+		</p>
+		<p>
+			<label >Fecha Compra</label>
+			<input type="date" th:field=*{fechaUltimaCompra}  />
+		</p>
+		<p>
+			
+			<input type="submit" value="Guardar"/>
+		</p>
+	</form>
+	
+	</body>
+</html>

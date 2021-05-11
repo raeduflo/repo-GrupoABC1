@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+	<meta charset="ISO-8859-1">
+	<title>Insert title here</title>
+	</head>
+	<body>
+		<h3>LISTADO DE CLIENTES</h3>
+		<table border="1">
+			<thead>
+				<tr>
+					<th>Tipo Doc</th>
+					<th>Num Doc</th>
+					<th>Nombre y Apellido</th>
+					<th>Email</th>					
+					<th>Fecha Nacimiento</th>
+					<th>Edad</th>
+					<th>Telfono</th>
+					<th>Ultima Compra</th>
+					<th>Datos Extras</th>
+					<th>T1</th>
+					<th>T2</th>
+					<th>T3</th>
+					
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="c:${clientes}">
+					<th th:text="${c.tipoDocumento}"></th>
+					<th th:text="${c.nroDocumento}"></th>				
+					<th th:text="${c.Nombre}+', '+${c.Apellido}"></th>
+					<th th:text="${c.email}"></th>										
+					<td th:text="${#temporals.format(c.fechaNciemiento, 'dd/MM/yyyy')}"></td>
+					<th th:text="${c.getEdad}"></th>
+					<th th:text="${c.codAreaTelefono}+'-' + ${c.nroTelefono}"></th>
+					<td th:text="${#temporals.format(c.fechaUltimaCompra, 'dd/MM/yyyy')}"></td>					
+					<th th:text="${c.getTiempoCumple}"></th>
+					<td th:text="${c.getTiempoDesdeCompra}"></td>
+					<td th:text="${c.getDiasDeVida}" ></td>
+					<td th:text="${c.getTiempoHastaCumple}"></td>
+				</tr>
+			</tbody>			
+									
+			<a href="/cliente/nuevo">NUEVO CLIENTE</a>
+		
+		</table>
+	</body>
+</html>
